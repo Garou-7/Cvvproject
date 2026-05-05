@@ -25,8 +25,8 @@ console.log("=== SYSTEM BOOT INITIATED ===");
 // Create two variables using 'const' or 'let':
 // 1. 'studentName' (String) - Assign your full name.
 // 2. 'studentTitle' (String) - Assign your dream job (e.g., "Full Stack Developer", "Cybersecurity Analyst")
-
-// YOUR CODE HERE:
+const studentName = "Ali Saliev";
+const studentTitle = "Cybersecurity";
 
 
 
@@ -38,7 +38,7 @@ console.log("=== SYSTEM BOOT INITIATED ===");
 // Create an array named 'mySkills' containing at least 4 strings.
 // Examples of skills: 'HTML', 'CSS', 'TCP/IP', 'Problem Solving'
 
-// YOUR CODE HERE:
+const mySkills = ['HTML', 'JavaScript', 'PHP', 'MySQL', 'CSS', 'Java', 'Python', 'C++','Problem Solving', 'Teamwork', 'Communication'];
 
 
 
@@ -52,8 +52,11 @@ console.log("=== SYSTEM BOOT INITIATED ===");
 // - level (Number): Your current age or academic year
 // - isActive (Boolean): true or false
 
-// YOUR CODE HERE:
-
+const hackerProfile = {
+    alias: "Amogus",
+    level: 3,
+    isActive: true
+};
 
 
 
@@ -66,7 +69,7 @@ console.log("=== SYSTEM BOOT INITIATED ===");
 // Hint: Use dot notation! (e.g., objectName.propertyName)
 
 // FIX THIS CODE:
-// console.log("Incoming connection from: " + hackerProfile_wrong_property); 
+console.log("Incoming connection from: " + hackerProfile.alias); 
 
 
 // ==========================================
@@ -76,7 +79,7 @@ console.log("=== SYSTEM BOOT INITIATED ===");
 // Remember, arrays are ZERO-indexed (the first element is at index 0).
 // Write a console.log statement extracting and printing the 2nd element of 'mySkills'.
 
-// YOUR CODE HERE:
+console.log("Second skill: " + mySkills[1]);
 
 
 

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- TO remove issue with favicon. <link rel="icon" href="data:,">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beginner Dev Portfolio</title>
@@ -32,7 +33,7 @@
             <div class="profile-container">
                 <!-- TASK 1 [Week 2]: Add your profile image here using the <img> tag. 
                      Make sure to use the 'profile-pic' class and an alt attribute! -->
-                <!-- YOUR CODE HERE -->
+                     <img src="profile1.jpg" class="profile-pic" alt="My Profile Photo">
 
             </div>
             <p>Welcome to my digital space. Check the console to see my system boot up logs!</p>
@@ -43,7 +44,32 @@
             <h2>System Specifications (About Me)</h2>
             <!-- TASK 2 [Week 3]: Create an HTML Table to display your education history or technical stats. 
                  It must have at least 2 columns and 3 rows, using <table>, <tr>, and <td>. -->
-            <!-- YOUR CODE HERE -->
+                    <table>
+                        <tr>
+                            <th>Category</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>Ali</td>
+                        </tr>
+                        <tr>
+                            <td>University</td>
+                            <td>Halic university, Istanbul</td>
+                        </tr>
+                        <tr>
+                            <td>Major</td>
+                            <td>Software Engineering</td>
+                        </tr>
+                        <tr>
+                            <td>Study period </td>
+                            <td>2023-2027 (3rd year)</td>
+                        </tr>
+                        <tr>
+                            <td>Languages</td>
+                            <td>Russian, English, Turkish, Italian</td>
+                        </tr>
+                    </table>
 
         </section>
 
@@ -65,8 +91,12 @@
                  - A dropdown <select> for "Reason for contact"
                  - A submit <button> 
                  Make it use the "POST" method. -->
-            <!-- YOUR CODE HERE -->
-
+                 <form id="contact-form" method="POST">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
         </section>
     </main>
 

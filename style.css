@@ -51,7 +51,7 @@ body {
     /* TASK 4 [Week 4]: BUG DETECTED!
        This grid is covering our elements and stopping us from clicking links!
        Change the `z-index` property to a negative number to send it to the back. */
-    z-index: 1000; 
+    z-index: -1; 
 }
 
 /* 🚀 Navigation */
@@ -116,12 +116,14 @@ main {
     padding: 3rem;
     backdrop-filter: blur(12px);
     transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
     /* TASK 5 [Week 4]: Add a default `box-shadow` here if you want! */
 }
 
 .glass-panel:hover {
     transform: translateY(-5px);
     border-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 30px var(--accent-glow);
     /* TASK 6 [Week 4]: Add a `box-shadow` related property here to make it glow cyan (var(--accent-glow)) on hover! */
     
 }
@@ -156,6 +158,8 @@ h2 {
     border: 2px solid var(--accent);
     box-shadow: 0 0 15px var(--accent-glow);
     object-fit: cover;
+    margin: 0 auto; /* centers horizontally */
+    display: block; /* important for img */
     margin-bottom: 1rem;
 }
 
