@@ -1,13 +1,20 @@
 <?php
-$host = '127.0.0.1';
+$host = 'localhost';
 $db   = 'portfolio_db';
 $user = 'root';
-$pass = '';  // ← впиши свой пароль от MySQL Workbench
+$pass = 'ygadaikto7';
+$port = '3306';
 
 try {
-    $pdo = new PDO("mysql:host=$host;port=3306;dbname=$db;charset=utf8", $user, $pass);
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$db;charset=utf8",
+        $user,
+        $pass
+    );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die(json_encode(['error' => 'Connection failed: ' . $e->getMessage()]));
+    http_response_code(500);
+    echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
+    exit;
 }
 ?>

@@ -120,3 +120,101 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("System Initialization Incomplete: Finish your JS tasks to unlock the full portfolio features!", error);
     }
 });
+
+
+
+// FORM VALIDATION + AJAX
+
+function validateForm() {
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (name === '') {
+        alert('Please enter your name!');
+        return false;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email!');
+        return false;
+    }
+    if (message === '') {
+        alert('Please enter a message!');
+        return false;
+    }
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // CONTACT FORM — AJAX Submit
+    // ==========================================
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // останавливаем стандартную отправку страницы
+
+            if (!validateForm()) return; // если валидация не прошла — стоп
+
+            const formData = new FormData(this);
+
+            fetch('send_message.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    contactForm.innerHTML = `
+                        <p style="color: var(--accent); font-size: 1.2rem;">
+                            ✅ Message sent successfully!
+                        </p>
+                    `;
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Try again!');
+            });
+        });
+    }
+
+    // ==========================================
+    // LOAD PROJECTS — AJAX from database
+    // ==========================================
+    const projectsContainer = document.getElementById('projects-container');
+
+    if (projectsContainer) {
+        fetch('get_projects.php')
+        .then(response => response.json())
+        .then(projects => {
+            if (projects.length === 0) {
+                projectsContainer.innerHTML = '<p>No projects yet.</p>';
+                return;
+            }
+
+            projects.forEach(project => {
+                projectsContainer.innerHTML += `
+                    <div class="glass-panel" style="margin-bottom: 1rem;">
+                        <h3 style="color: var(--accent);">${project.title}</h3>
+                        <p>${project.description}</p>
+                        <p><em>Tech: ${project.tech_stack}</em></p>
+                        ${project.github_link ? 
+                            `<a href="${project.github_link}" 
+                                target="_blank" 
+                                style="color: var(--accent);">
+                                View on GitHub →
+                             </a>` 
+                            : ''}
+                    </div>
+                `;
+            });
+        })
+        .catch(error => console.error('Could not load projects:', error));
+    }
+
+});
