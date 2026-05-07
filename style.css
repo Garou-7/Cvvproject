@@ -162,6 +162,30 @@ h2 {
     display: block; /* important for img */
     margin-bottom: 1rem;
 }
+.admin-btn {
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem !important;
+    border-radius: 8px;
+    color: var(--accent) !important;
+    transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+    background: var(--accent);
+    color: #000 !important;
+}
+
+/* Mode */
+body.light-mode {
+    --bg-color: #f0f4f8;
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --text-main: #1a202c;
+    --accent: #0077ff;
+    --accent-glow: rgba(0, 119, 255, 0.5);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
 
 /* Generic Form & Table Styles for your tasks */
 table {

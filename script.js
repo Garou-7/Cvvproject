@@ -218,3 +218,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// ==========================================
+// DARK MODE TOGGLE
+// ==========================================
+function toggleDarkMode() {
+    document.body.classList.toggle('light-mode');
+    const btn = document.getElementById('theme-btn');
+    if (document.body.classList.contains('light-mode')) {
+        btn.innerText = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+    } else {
+        btn.innerText = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Запомнить тему при перезагрузке
+window.addEventListener('load', () => {
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        document.getElementById('theme-btn').innerText = '🌙 Dark Mode';
+    }
+});
