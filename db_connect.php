@@ -1,8 +1,8 @@
 <?php
-$host = 'sql309.infinityfree.com';
-$db   = 'if0_41858658_cvv';
-$user = 'if0_41858658';
-$pass = 'salievali';
+$host = 'localhost';
+$db   = 'portfolio_db';
+$user = 'root';
+$pass = '$2y$12$l/Fcdnlx8DVRTSyXwjMAHeysWi9k6KJWhg8r.sV6B2rWXTRsOMGsu';
 $port = '3306';
 
 try {
