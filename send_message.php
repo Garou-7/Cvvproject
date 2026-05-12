@@ -1,5 +1,5 @@
 <?php
-require 'db_connect.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/db_connect.php';
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
@@ -13,12 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $pdo->prepare(
-        "INSERT INTO messages (name, email, reason, message) VALUES (?, ?, ?, ?)"
-    );
-    $stmt->execute([$name, $email, $message]);
-
-    echo json_encode(['status' => 'success', 'message' => 'Message sent!']);
+    try {
+        $stmt = $pdo->prepare(
+            "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)"
+        );
+        $stmt->execute([$name, $email, $message]);
+        echo json_encode(['status' => 'success', 'message' => 'Message sent!']);
+    } catch (Exception $e) {
+        echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+    }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request']);
 }
