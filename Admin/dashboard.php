@@ -102,6 +102,7 @@ $messages = $pdo->query("SELECT * FROM messages ORDER BY created_at DESC")->fetc
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Reason</th>
                         <th>Message</th>
                         <th>Date</th>
                     </tr>
@@ -109,6 +110,7 @@ $messages = $pdo->query("SELECT * FROM messages ORDER BY created_at DESC")->fetc
                     <tr>
                         <td><?= $msg['name'] ?></td>
                         <td><?= $msg['email'] ?></td>
+                        <td><?= $msg['reason'] ?></td>
                         <td><?= $msg['message'] ?></td>
                         <td><?= $msg['created_at'] ?></td>
                     </tr>

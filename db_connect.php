@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'portfolio_db';
 $user = 'root';
-$pass = 'ygadaikto7';
+$pass = '$2y$12$l/Fcdnlx8DVRTSyXwjMAHeysWi9k6KJWhg8r.sV6B2rWXTRsOMGsu';
 $port = '3306';
 
 try {
@@ -17,6 +17,4 @@ try {
     echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
     exit;
 }
-
-echo password_hash('ygadaikto', PASSWORD_DEFAULT);
 ?>
